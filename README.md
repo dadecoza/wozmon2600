@@ -1,1 +1,1 @@
-"# wozmon2600" 
+The Woz Monitor ported to the Atari 2600.
