@@ -236,7 +236,7 @@ SHIFTBIT        STA SWCHA               ; Write bit to SWCHA
 TXWAIT          LDX INTIM               ; Check time
                 BNE TXWAIT              ; Are we done waiting?
                 DEY                     ; Decrement y
-	            BPL SHIFTBIT            ; Do we still have bits left?
+                BPL SHIFTBIT            ; Do we still have bits left?
                 LDX #1                  ; Stop Bit
                 STX SWCHA               ; Write the stop bit
                 LDX #16                 ; Seems to be more or less right for 1200baud 
@@ -249,6 +249,9 @@ STOPBIT         LDX INTIM               ; Check time
                 TAX
                 PLA
                 RTS                     ; Return
+;-------------------------------------------------------------------------
+;  Subroutine to read a character from the terminal
+;-------------------------------------------------------------------------
 GETCH           TXA
                 PHA                     ; Push X register on stack
                 CLC                     ; Clear carry
